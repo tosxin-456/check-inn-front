@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Event Check-In</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Event Check-In</h1>
+      <p class="tagline">Search, check people in, and register new attendees.</p>
+      <div class="stats">
+        <div class="stat"><div class="n" id="stat-total">–</div><div class="l">Registered</div></div>
+        <div class="stat"><div class="n" id="stat-in">–</div><div class="l">Checked in</div></div>
+        <div class="stat"><div class="n" id="stat-remaining">–</div><div class="l">Remaining</div></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="wrap">
+      <input id="q" type="search" placeholder="Search by name, phone or church…" autocomplete="off" autofocus>
+      <div class="seg" id="status-filter" role="group" aria-label="Filter by status">
+        <button data-status="all" class="active">All</button>
+        <button data-status="out">Not in</button>
+        <button data-status="in">Checked in</button>
+      </div>
+      <button class="btn btn-primary" id="btn-register">+ Register</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap">
+      <div class="banner" id="banner"></div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th class="num">#</th>
+              <th>Name</th>
+              <th class="col-phone">Phone</th>
+              <th>Church</th>
+              <th>Status</th>
+              <th class="actions"></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Register modal -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title">Register a new attendee</h2>
+      <form id="register-form">
+        <p class="form-error" id="form-error"></p>
+        <div class="field">
+          <label for="f-name">Full name <span class="req">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone number</label>
+          <input id="f-phone" name="phone" type="text" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="f-church">Church</label>
+          <input id="f-church" name="church" type="text" autocomplete="off">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="btn-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save">Register &amp; check in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
