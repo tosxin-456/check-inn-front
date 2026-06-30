@@ -4,7 +4,7 @@
 // Default to local backend. Override with ?api=https://your-api  (remembered in localStorage).
 const params = new URLSearchParams(location.search);
 if (params.get("api")) localStorage.setItem("checkinApiBase", params.get("api"));
-const API_BASE = (params.get("api") || localStorage.getItem("checkinApiBase") || "http://localhost:3001").replace(/\/+$/, "");
+const API_BASE = (params.get("api") || localStorage.getItem("checkinApiBase") || "https://check-inn-o4rq.vercel.app").replace(/\/+$/, "");
 
 // ---- DOM refs ----
 const rowsEl = document.getElementById("rows");
